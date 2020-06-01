@@ -1,0 +1,27 @@
+//answers to Tools Of the Trade quiz
+
+1a. cd <directory name>
+1b. ls
+1c. pwd
+1d. mv 
+1e. cp <origin> <destination> 
+1f. vim <filename>
+1g. mkdir 
+1h. rm 
+1i. rm -r 
+1j. cat <filename> 
+1k. vim <filename>
+2. Version control and collaboration.
+3. Make sure you're in the right directory, get the status to make sure the files you modified are showing up as ready 
+to be added to the staging area, add the files to the staging area, commit the files, push the files to the repository.
+4. Adding a remote, allows you to push files to git for collaboration and version control. Also, you can work on the files offline and only push them when they're ready.
+5. System.out.println("message"); 
+6. With the main method 
+7. Integrated Development Environment 
+8. Vim is a text editor that allows you to create files on a server where there may not be a GUI. 
+9. Press i 
+10. esc 
+11. :wq 
+12. javac <filename.java> 
+13. java <filnename> //the .java extension is not required 
+14. right click then click on run

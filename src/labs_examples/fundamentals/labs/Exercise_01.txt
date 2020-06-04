@@ -2,21 +2,85 @@ Fundamentals Exercise 1: CLI
      Perform the following tasks using the CLI and copy and paste the commands and results below
 
      1. Navigate to CodingNomads folder (or the space you have create for this project)
+     Owner@DESKTOP-KG96ESV ~
+     λ cd desktop/coding/Learning\ Java/CodingNomads
+     Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads
+
      2. Create new folder Terminal_testing
+     λ mkdir Terminal_testing
+     Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads
+     λ cd Terminal_testing
+     Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+     λ
+
      3. Inside of folder Terminal_testing,
          a. create 3 new .txt files all with different names
+         λ vim file1.txt
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+         λ vim file2.txt
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+         λ vim file3.txt
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
          b. print the directory path
+         λ pwd
+         /c/Users/Owner/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
          c. list the contents of the folder
+         λ ls -al
+         total 16
+         drwxr-xr-x 1 Owner 197121    0 Jun  3 20:09  ./
+         drwxr-xr-x 1 Owner 197121    0 Jun  3 20:07  ../
+         -rw-r--r-- 1 Owner 197121    0 Jun  3 20:08  file1.txt
+         -rw-r--r-- 1 Owner 197121    0 Jun  3 20:08  file2.txt
+         -rw-r--r-- 1 Owner 197121    0 Jun  3 20:09  file3.txt
+         -rw-r--r-- 1 Owner 197121 5040 Jun  3 20:07 'Open Notebook.onetoc2'
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
      5. Inside of folder Terminal_testing, create a new folder
+     λ mkdir folder2
+     Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+     λ
+
      6. Copy a file from Terminal_testing to the new folder
+     λ cp file1.txt folder2
+     Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
      7. Move a different file from Terminal_testing to the new folder
+        λ mv file3.txt folder2
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
      8. Demonstrate removing:
          a. A file
+         λ rm file1.txt
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
          b. A folder
+         λ rm -r folder2
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
      9. CHALLENGE:
          a. Use $ vim to write some text inside a file
+         λ vim file1.txt
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
          b. Use $ cat print contents of file
+         λ cat file1.txt
+         This is a text file that I will use to find a word.
+         dog
+         cat
+         bird
+         house
+         dogs
+         horses
+         cows
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
+
          c. Use $ grep to search for a word inside file
+        λ grep dog file1.txt
+        dog
+        dogs
+Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/Terminal_testing
 
 Example Output (pwd):
     1. Cadens-MacBook-Pro:CodingNomads cadenmackenzie$ pwd

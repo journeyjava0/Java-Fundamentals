@@ -4,17 +4,66 @@
 
 Initializing git folder
     1. In CodingNomads folder, create new folder git_practice
+    Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads
+    λ mkdir git_practice
+
     2. Inside git_practice:
         a. Initialize folder as a git folder (make sure you are in the correct folder when initializing) by running
             the "git init" command within the git_practice folder.
+            Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads
+            λ cd git_practice
+            Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice
+            λ git init
+            Initialized empty Git repository in C:/Users/Owner/Desktop/Coding/Learning Java/CodingNomads/git_practice/.git/
+            Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+
         b. Make new file
+        λ vim gitPracticeFile.txt
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+
         c. Add file
+        λ git add gitPracticeFile.txt
+        warning: LF will be replaced by CRLF in gitPracticeFile.txt.
+        The file will have its original line endings in your working directory
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ git config --global core.autocrlf true
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+
         d. Commit file
-        c. On Github, create new git_practice repository
-        d. Add this new GitHub repository as a new "remote" to your local Git repo. You can do this by using the command
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ git commit -m "uploading a text file for Exercise_02.txt"
+        [master (root-commit) 074de20] uploading a text file for Exercise_02.txt
+         1 file changed, 1 insertion(+)
+         create mode 100644 gitPracticeFile.txt
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+
+        e. On Github, create new git_practice repository
+
+        f. Add this new GitHub repository as a new "remote" to your local Git repo. You can do this by using the command
             git remote add <ANY_NAME> <URL_OF_NEW_GITHUB_REPO.git>
-        d. Push commit file to Github
-        e. Practice the following git flow until you feel comfortable:
+        λ git remote add git_practice https://github.com/journeyjava0/git_practice.git
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+
+        g. Push commit file to Github
+        λ git push git_practice
+        fatal: The current branch master has no upstream branch.
+        To push the current branch and set the remote as upstream, use
+
+            git push --set-upstream git_practice master
+
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ git push --set-upstream git_practice master
+        Enumerating objects: 3, done.
+        Counting objects: 100% (3/3), done.
+        Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
+        Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+        To https://github.com/journeyjava0/git_practice.git
+         * [new branch]      master -> master
+        Branch 'master' set up to track remote branch 'master' from 'git_practice'.
+        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+
+
+        h. Practice the following git flow until you feel comfortable:
             i.   Create or modify file
             ii.  Add file(s)
             iii. Commit file(s)
@@ -24,7 +73,18 @@ Adding a remote
     1. Create new personal repository on Github named "git_practice_2".
     2. On local machine, add the new remote address to the same git repo you were working with in the previous section above
         (directions are provided on Github with new repo is created)
+       λ git remote add origin https://github.com/journeyjava0/git_practice_2.git
+         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
     3. Push local git repository to your Github using the new remote.
+λ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/journeyjava0/git_practice_2.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
 
 Cloning repository from Github
     1. Find a repository on Github

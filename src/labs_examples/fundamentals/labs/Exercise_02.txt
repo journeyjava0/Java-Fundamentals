@@ -85,6 +85,7 @@ To https://github.com/journeyjava0/git_practice_2.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+//Need to understand 'adding a remote' before proceeding
 
 Cloning repository from Github
     1. Find a repository on Github

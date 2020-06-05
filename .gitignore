@@ -1,3 +1,4 @@
+*.onetoc2
 .idea
 out/
 *.iml

@@ -4,64 +4,56 @@
 
 Initializing git folder
     1. In CodingNomads folder, create new folder git_practice
-    Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads
-    λ mkdir git_practice
+    mkdir git_practice
 
     2. Inside git_practice:
         a. Initialize folder as a git folder (make sure you are in the correct folder when initializing) by running
             the "git init" command within the git_practice folder.
-            Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads
-            λ cd git_practice
-            Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice
-            λ git init
-            Initialized empty Git repository in C:/Users/Owner/Desktop/Coding/Learning Java/CodingNomads/git_practice/.git/
-            Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ cd git_practice
+        Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice
+        λ  git init
+        Initialized empty Git repository in C:/Users/Owner/Desktop/Coding/Learning Java/CodingNomads/git_practice/.git/
+        Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice (master)
 
         b. Make new file
-        λ vim gitPracticeFile.txt
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ vim practiceFile.txt
 
         c. Add file
-        λ git add gitPracticeFile.txt
-        warning: LF will be replaced by CRLF in gitPracticeFile.txt.
-        The file will have its original line endings in your working directory
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
-        λ git config --global core.autocrlf true
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+       λ git add practiceFile.txt
+       warning: LF will be replaced by CRLF in practiceFile.txt.
+       The file will have its original line endings in your working directory
+       Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice/git_practice (master)
+       λ git config --global core.autocrlf true
+       Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice/git_practice (master)
 
         d. Commit file
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
-        λ git commit -m "uploading a text file for Exercise_02.txt"
-        [master (root-commit) 074de20] uploading a text file for Exercise_02.txt
-         1 file changed, 1 insertion(+)
-         create mode 100644 gitPracticeFile.txt
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+     λ git commit -m "practice uploading to git"
+     [master e3d7db1] practice uploading to git
+      1 file changed, 1 insertion(+)
+      create mode 100644 practiceFile.txt
+
 
         e. On Github, create new git_practice repository
 
         f. Add this new GitHub repository as a new "remote" to your local Git repo. You can do this by using the command
-            git remote add <ANY_NAME> <URL_OF_NEW_GITHUB_REPO.git>
-        λ git remote add git_practice https://github.com/journeyjava0/git_practice.git
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ git remote add myGit1 https://github.com/journeyjava0/git_practice.git
+
+        λ git remote -v
+        myGit1  https://github.com/journeyjava0/git_practice.git (fetch)
+        myGit1  https://github.com/journeyjava0/git_practice.git (push)
 
         g. Push commit file to Github
-        λ git push git_practice
-        fatal: The current branch master has no upstream branch.
-        To push the current branch and set the remote as upstream, use
-
-            git push --set-upstream git_practice master
-
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
-        λ git push --set-upstream git_practice master
-        Enumerating objects: 3, done.
-        Counting objects: 100% (3/3), done.
-        Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
-        Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+        λ git push myGit1 master
+        Username for 'https://github.com': Journeyjava0@gmail.com
+        Password for 'https://Journeyjava0@gmail.com@github.com':
+        Enumerating objects: 4, done.
+        Counting objects: 100% (4/4), done.
+        Delta compression using up to 8 threads
+        Compressing objects: 100% (2/2), done.
+        Writing objects: 100% (3/3), 333 bytes | 333.00 KiB/s, done.
+        Total 3 (delta 0), reused 0 (delta 0)
         To https://github.com/journeyjava0/git_practice.git
-         * [new branch]      master -> master
-        Branch 'master' set up to track remote branch 'master' from 'git_practice'.
-        Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
-
+        286a32a..e3d7db1  master -> master
 
         h. Practice the following git flow until you feel comfortable:
             i.   Create or modify file
@@ -71,25 +63,89 @@ Initializing git folder
 
 Adding a remote
     1. Create new personal repository on Github named "git_practice_2".
+
     2. On local machine, add the new remote address to the same git repo you were working with in the previous section above
         (directions are provided on Github with new repo is created)
-       λ git remote add origin https://github.com/journeyjava0/git_practice_2.git
-         Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
+        λ git remote add myGit2 https://github.com/journeyjava0/git_practice_2.git
+        λ git remote -v
+        myGit1  https://github.com/journeyjava0/git_practice.git (fetch)
+        myGit1  https://github.com/journeyjava0/git_practice.git (push)
+        myGit2  https://github.com/journeyjava0/git_practice_2.git (fetch)
+        myGit2  https://github.com/journeyjava0/git_practice_2.git (push)
+
     3. Push local git repository to your Github using the new remote.
-λ git push -u origin master
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+λ git push myGit2 master
+Username for 'https://github.com': Journeyjava0@gmail.com
+Password for 'https://Journeyjava0@gmail.com@github.com':
 To https://github.com/journeyjava0/git_practice_2.git
- * [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
-Owner@DESKTOP-KG96ESV ~/desktop/coding/Learning Java/CodingNomads/git_practice (master)
-//Need to understand 'adding a remote' before proceeding
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/journeyjava0/git_practice_2.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice/git_practice (master)
+//Note: I had to pull from my remote as I'd made some changes to it while practicing git commands in addition to the labs
+λ git pull myGit2 master
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 11 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (11/11), done.
+From https://github.com/journeyjava0/git_practice_2
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> myGit2/master
+Merge made by the 'recursive' strategy.
+ testDelete.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 testDelete.txt
+
+ λ git push myGit2 master
+ Username for 'https://github.com': Journeyjava0@gmail.com
+ Password for 'https://Journeyjava0@gmail.com@github.com':
+ Enumerating objects: 11, done.
+ Counting objects: 100% (11/11), done.
+ Delta compression using up to 8 threads
+ Compressing objects: 100% (7/7), done.
+ Writing objects: 100% (9/9), 1.40 KiB | 477.00 KiB/s, done.
+ Total 9 (delta 1), reused 0 (delta 0)
+ remote: Resolving deltas: 100% (1/1), done.
+ To https://github.com/journeyjava0/git_practice_2.git
+    e17010f..971c3e2  master -> master
 
 Cloning repository from Github
     1. Find a repository on Github
+
     2. Clone repository to local machine
+    λ mkdir cloningPractice
+    Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice/git_practice (master)
+    λ cd cloningPractice/
+    Owner@DESKTOP-KG96ESV ~/Desktop/Coding/Learning Java/CodingNomads/git_practice/git_practice/cloningPractice (master)
+    λ git remote add clone https://github.com/CodingNomads/chartingCovid.git
+    λ git clone  https://github.com/CodingNomads/chartingCovid.git
+    Cloning into 'chartingCovid'...
+    remote: Enumerating objects: 11, done.
+    remote: Counting objects: 100% (11/11), done.
+    remote: Compressing objects: 100% (9/9), done.
+    remote: Total 11 (delta 0), reused 8 (delta 0), pack-reused 0
+    Unpacking objects: 100% (11/11), done.
+
     3. Create new repository on Github
+
     4. Add new remote on local machine
+    λ git remote add clonePractice https://github.com/journeyjava0/cloning_covid.git
+
     5. Push to new Github repository
+    λ git push clonePractice master
+    Username for 'https://github.com': Journeyjava0@gmail.com
+    Password for 'https://Journeyjava0@gmail.com@github.com':
+    Enumerating objects: 23, done.
+    Counting objects: 100% (23/23), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (18/18), done.
+    Writing objects: 100% (23/23), 4.83 KiB | 329.00 KiB/s, done.
+    Total 23 (delta 3), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (3/3), done.
+    To https://github.com/journeyjava0/cloning_covid.git
+     * [new branch]      master -> master

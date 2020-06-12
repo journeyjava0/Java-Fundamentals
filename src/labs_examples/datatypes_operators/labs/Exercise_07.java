@@ -24,6 +24,8 @@ public class Exercise_07 {
         int days = scanner.nextInt();
 
         // write completed code here
-
+        long seconds = (long) days * 24 * 60 * 60;
+        //why do I need to cast days as a long? shouldn't it automatically widen to a long from an int?
+        System.out.println("There are " + seconds + " seconds in " + days + " days");
     }
 }

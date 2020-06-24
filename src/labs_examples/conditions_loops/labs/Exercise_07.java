@@ -23,20 +23,8 @@ public class Exercise_07 {
         String vowels = "aeiou";
         int i = 0;
 
-        while (i <= userInput.length() + 1) {
-            if (userInput.charAt(i) == vowels.charAt(0)) {
-                System.out.println("first vowel is " + userInput.charAt(i) + " found at index " + i + " of word " + userInput);
-                break;
-            } else if (userInput.charAt(i) == vowels.charAt(1)) {
-                System.out.println("first vowel is " + userInput.charAt(i) + " found at index " + i + " of word " + userInput);
-                break;
-            } else if (userInput.charAt(i) == vowels.charAt(2)) {
-                System.out.println("first vowel is " + userInput.charAt(i) + " found at index " + i + " of word " + userInput);
-                break;
-            } else if (userInput.charAt(i) == vowels.charAt(3)) {
-                System.out.println("first vowel is " + userInput.charAt(i) + " found at index " + i + " of word " + userInput);
-                break;
-            } else if (userInput.charAt(i) == vowels.charAt(4)) {
+        while (i < userInput.length()) {
+            if (vowels.indexOf(userInput.charAt(i)) != -1) {
                 System.out.println("first vowel is " + userInput.charAt(i) + " found at index " + i + " of word " + userInput);
                 break;
             }

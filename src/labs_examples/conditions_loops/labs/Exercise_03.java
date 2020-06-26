@@ -19,7 +19,7 @@ public class Exercise_03 {
         switch (number) {
             case 1:
                 System.out.println("January");
-            break;
+                break;
 
             case 2:
                 System.out.println("February");

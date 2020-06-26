@@ -24,8 +24,9 @@ public class Exercise_07 {
         int i = 0;
 
         while (i < userInput.length()) {
-            if (vowels.indexOf(userInput.charAt(i)) != -1) {
-                System.out.println("first vowel is " + userInput.charAt(i) + " found at index " + i + " of word " + userInput);
+            char c = userInput.charAt(i);
+            if (vowels.indexOf(c) != -1) {
+                System.out.println("first vowel is " + c + " found at index " + i + " of word " + userInput);
                 break;
             }
             i++;

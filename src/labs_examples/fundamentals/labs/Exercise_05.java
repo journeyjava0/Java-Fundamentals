@@ -16,7 +16,10 @@ public class Exercise_05 {
         // please declare an int variable below, and set it to the value of the length of "str"
         int strLength = str.length();
 
-        String str2 = "hello";
+        String str2 = "hello!";
+        if(str == str2) {
+            System.out.println("equal strings");
+        }
         // please initialize a boolean variable and test whether str is equal to str2
         boolean isEqual = str.equals(str2);
 

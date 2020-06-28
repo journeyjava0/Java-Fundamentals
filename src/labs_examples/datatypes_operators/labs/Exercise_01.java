@@ -19,6 +19,7 @@ public class Exercise_01 {
         int a = 250;
         double b = 65.32;
         char c = 'A';
+        int i = 10%3;
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);

@@ -1,5 +1,7 @@
 package labs_examples.arrays.labs;
 
+import java.sql.SQLOutput;
+
 /**
  *  2D Array
  *
@@ -19,12 +21,21 @@ public class Exercise_03 {
 
     public static void main(String[] args) {
         int[][] twoDArray = new int[5][5];
+        int count = 0;
+
         // use 2 for loops to populate the 2d array
         // first for loop
-        for (int innerLoop = 1; innerLoop < twoDArray.length; innerLoop++){
+        for (int innerLoop = 0; innerLoop < twoDArray.length; innerLoop++){
             for (int outerLoop = 0; outerLoop < twoDArray[innerLoop].length; outerLoop++){
-                twoDArray[innerLoop][outerLoop] = innerLoop * 3;
-                System.out.print(twoDArray[outerLoop][innerLoop]);
+                count += 3;
+                twoDArray[innerLoop][outerLoop] = count;
+                }
+        }
+
+        //2nd for loop to print out the values
+        for (int[] outer : twoDArray){
+            for(int val : outer) {
+                System.out.print(val + " ");
             }
             System.out.println();
         }

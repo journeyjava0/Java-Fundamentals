@@ -9,5 +9,14 @@ package labs_examples.arrays.labs;
  */
 
 public class Exercise_04 {
+    public static void main(String[] args) {
+        int[][] nums = {{5,2,4}, {1,2}, {3,4,0}};
 
+        for (int[] outer : nums) {
+            for (int result : outer) {
+                System.out.print(result + " ");
+            }
+            System.out.println();
+        }
+    }
 }

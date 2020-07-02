@@ -30,7 +30,7 @@ public class Exercise_06 {
             temp = nums[i]; //storing each number in temp from it's first position to use it later
             nums[i] = nums[nums.length - (1+i)]; //element at the beginning is replaced by the last element
             nums[nums.length - (1+i)] = temp; //the last element receives the value of the first element
-            }
+        }
         //at the end of the for loop, the order of elements from line 18 is now reversed
         System.out.print("Contents of array after for loop - ");
 

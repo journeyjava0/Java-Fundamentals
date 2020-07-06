@@ -2,7 +2,6 @@ package labs_examples.objects_classes_methods.labs.objects;
 
 public class AirplaneController {
 
-
     public static void main(String[] args) {
 
         //Create an object from the Airplane POJO

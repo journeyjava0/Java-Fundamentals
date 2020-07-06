@@ -5,23 +5,26 @@ public class AirplaneController {
 
     public static void main(String[] args) {
 
-        //POJO
-        Engines ua1Engines = new Engines(2, "Pratt & Whitney");
-        Seats ua1Seats = new Seats(80, 2);
+        //Create an object from the Airplane POJO
+        //Step 1: Assign values to the object variables
+        JetEngine ua1Engines = new JetEngine(2, "Pratt & Whitney");
         Crew ua1Crew = new Crew(2, 6);
-        Passengers ua1Passengers = new Passengers(60);
-        //New object of POJO?
-        Airplane ua1 = new Airplane(ua1Engines, ua1Seats, ua1Crew, ua1Passengers);
+        Seat ua1Seats = new Seat(80, 2);
+        Passenger ua1Passengers = new Passenger(70);
+        //Step 2: Create new object from the POJO
+        Airplane ua1 = new Airplane(ua1Engines, ua1Crew, ua1Seats, ua1Passengers);
 
-        //POJO
-        Engines ua2Engines = new Engines(4, "Boeing");
-        Seats ua2Seats = new Seats(120, 3);
+        //Create an object from the Airplane POJO
+        //Step 1: Assign values to the object variables
+        JetEngine ua2Engines = new JetEngine(4, "Boeing");
         Crew ua2Crew = new Crew(4, 8);
-        Passengers ua2Passengers = new Passengers(100);
-        //New Object of POJO?
-        Airplane ua2 = new Airplane(ua2Engines, ua2Seats, ua2Crew, ua2Passengers);
+        Seat ua2Seats = new Seat(120, 3);
+        Passenger ua2Passengers = new Passenger(100);
+        //Step 2: Create new object from the POJO
+        Airplane ua2 = new Airplane(ua2Engines, ua2Crew, ua2Seats, ua2Passengers);
 
-        System.out.println("Flight 1 has " + ua1.getPassengers().numPassengers + " flight 2 has " + ua2.getPassengers().getNumPassengers() + " passengers");
+        //Print out some values from the objects
+        System.out.println("Flight 1 has " + ua1.getPassengers().numPassengers + " passengers " + "and flight 2 has " + ua2.getPassengers().getNumPassengers() + " passengers");
     }
 }
 

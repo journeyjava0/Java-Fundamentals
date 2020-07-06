@@ -109,7 +109,7 @@ public class MyCar {
         }
     }
 } //why does this end } go here and not at the end of the file? If I put the
-// } at the end of the file, the classes aren't recognized ... is that because you can't have a class within a class? 
+// } at the end of the file, the classes aren't recognized ... is that because you can't have a class within a class?
     class driveTrain {
         String type;
         String option;

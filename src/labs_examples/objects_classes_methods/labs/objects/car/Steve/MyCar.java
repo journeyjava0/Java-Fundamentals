@@ -1,4 +1,4 @@
-package labs_examples.objects_classes_methods.labs.objects;
+package labs_examples.objects_classes_methods.labs.objects.car.Steve;
 
 public class MyCar {
     String type;
@@ -6,9 +6,9 @@ public class MyCar {
     String make;
     String color;
     boolean forSale;
-    driveTrain transmission;
-    fastCar fast;
-    electricCar electric;
+    DriveTrain transmission;
+    FastCar fast;
+    ElectricCar electric;
 
     public MyCar(String type, int year) {
         this.type = type;
@@ -20,13 +20,17 @@ public class MyCar {
         this.color = color;
     }
 
-    public MyCar(boolean forSale, driveTrain transmission) {
+    public MyCar(boolean forSale, DriveTrain transmission) {
         this.forSale = forSale;
         this.transmission = transmission;
+        System.out.println(4);
+        System.out.println(4.4);
+        System.out.println("Hello");
     }
 
     @Override
     public String toString() {
+        Object o = new Object();
         return "MyCar{" +
                 "type='" + type + '\'' +
                 ", year=" + year +
@@ -77,11 +81,11 @@ public class MyCar {
         this.forSale = forSale;
     }
 
-    public driveTrain getTransmission() {
+    public DriveTrain getTransmission() {
         return transmission;
     }
 
-    public void setTransmission(driveTrain transmission) {
+    public void setTransmission(DriveTrain transmission) {
         this.transmission = transmission;
     }
 
@@ -110,116 +114,10 @@ public class MyCar {
     }
 } //why does this end } go here and not at the end of the file? If I put the
 // } at the end of the file, the classes aren't recognized ... is that because you can't have a class within a class?
-    class driveTrain {
-        String type;
-        String option;
 
-        public driveTrain(String type, String option) {
-            this.type = type;
-            this.option = option;
-        }
 
-        public String getType() {
-            return type;
-        }
 
-        public void setType(String type) {
-            this.type = type;
-        }
 
-        public String getOption() {
-            return option;
-        }
 
-        public void setOption(String option) {
-            this.option = option;
-        }
-
-        @Override
-        public String toString() {
-            return "driveTrain{" +
-                    "type='" + type + '\'' +
-                    ", option='" + option + '\'' +
-                    '}';
-        }
-    }
-class fastCar {
-    int speed;
-    String model;
-
-    public fastCar(int speed, String model) {
-        this.speed = speed;
-        this.model = model;
-    }
-
-    @Override
-    public String toString() {
-        return "fastCar{" +
-                "speed=" + speed +
-                ", model=" + model +
-                '}';
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-}
-
-class electricCar {
-    int speed;
-    String model;
-    int year;
-
-    public electricCar(int speed, String model, int year) {
-        this.speed = speed;
-        this.model = model;
-        this.year = year;
-    }
-
-    @Override
-    public String toString() {
-        return "electricCar{" +
-                "speed=" + speed +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                '}';
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-}
 
 

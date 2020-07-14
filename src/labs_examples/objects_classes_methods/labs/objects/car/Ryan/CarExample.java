@@ -1,4 +1,4 @@
-package labs_examples.objects_classes_methods.labs.objects;
+package labs_examples.objects_classes_methods.labs.objects.car.Ryan;
 
 /**
  * Created by ryandesmond - https://codingnomads.co

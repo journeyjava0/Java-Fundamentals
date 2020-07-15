@@ -1,4 +1,4 @@
-package labs_examples.objects_classes_methods.demo;
+package labs_examples.arrays.labs;
 
 public class Book {
 

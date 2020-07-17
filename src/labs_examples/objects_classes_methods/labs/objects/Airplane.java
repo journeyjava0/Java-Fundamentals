@@ -6,10 +6,10 @@ public class Airplane {
 
     //Note that JetEngine, Crew, Seat, Passenger are POJOs (separate files with same name that are used to create the
     //Airplane object in the main method (AirplaneController.java).
-    JetEngine engines;
-    Crew crews;
-    Seat seats;
-    Passenger passengers;
+    private JetEngine engines;
+    private Crew crews;
+    private Seat seats;
+    private Passenger passengers;
 
     public Airplane(JetEngine engines, Crew crews, Seat seats, Passenger passengers) {
         this.engines = engines;

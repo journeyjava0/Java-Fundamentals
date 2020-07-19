@@ -10,11 +10,17 @@ package labs_examples.objects_classes_methods.labs.methods;
 public class Exercise_04 {
 
     public static void main(String[] args) {
-//        int x = factorial(5);
-//        System.out.println(x);
+        int x = factorial(5);
+        System.out.println(x);
     }
 
-
+public static int factorial (int y){
+        int total;
+        if(y ==1)
+            return 1;
+        total = factorial(y - 1)*y;
+        return total;
+}
 
 
 }

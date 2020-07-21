@@ -14,9 +14,12 @@ public class MethodTraining {
         int b = 15;
         System.out.println(minus(a, b)); // output 18
         System.out.println(a + " " + b); // output: a = 10, b = 15
+        String s = new String("red");
 
+        System.out.println(s);
         //2. pass by reference
-        Car myCar = new Car(50, "blue", "dodge");
+        Car myCar = new Car(50, "red", "dodge");
+        modifyString(myCar);
         System.out.println("Car color is " + myCar.getColor()); //prints blue
         myCar.setColor("red"); //is this pass be reference?
 
@@ -104,7 +107,8 @@ public class MethodTraining {
         char[] sampelC = sample.toCharArray();
 
         for (char s : sampelC) {
-            if (s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u') { //had an assist from google on the logical expression
+
+            if (s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u' || s == ' ') { //had an assist from google on the logical expression
                 howMany--;
             }
         } return howMany;
@@ -160,10 +164,15 @@ public class MethodTraining {
     }
 
     public static String largeSmall(int[] num) {
+        if(num.length < 1){
+            return "-1";
+        }
+
         //return the largest of the numbers
-        int theLargest = 0;
-        int theSmallest = 0;
+        int theLargest = num[0];
+        int theSmallest = num[0];
         int[] answer = new int[2];
+
 
         //Find largest number
         for (int a : num) {
@@ -172,15 +181,10 @@ public class MethodTraining {
             }
         }
 
-        //how to find the smallest number?
-        for(int i = 0; i < num.length; i++) {
-            for(int j = i+1; j < num.length; j++) //had to look up the next 4 lines on google, did not figure it out on my own!
-            if (num[i] < num[j]){ //I don't understand why I need a nested for loop to find smallest when I didn't need it to find the largest
-                                  //why do I need the next 3 lines? I did the debugger and step over but it's still not quite clear
-                                  //what's happening or why
-                theSmallest = num[i];
-                num[i] = num[j];
-                num[j] = theSmallest;
+        //Find the smallest number
+        for (int a : num) {
+            if (a < theSmallest) {
+                theSmallest = a;
             }
         }
 
@@ -189,6 +193,10 @@ public class MethodTraining {
         answer[1] = theLargest;
         String myAnswer = Arrays.toString(answer);
         return "Smallest number first then largest number: " + myAnswer;
+    }
+
+    public static void modifyString(Car s){
+        s.setColor("blue");
     }
 }
 

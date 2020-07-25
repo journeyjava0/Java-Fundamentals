@@ -2,7 +2,7 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism.RyanChalle
 
 public class Studs extends Lumber {
     @Override
-    public void amnt (int sqFt) {
+    public void getAmnt (int sqFt) {
         System.out.println(sqFt + " studs are required");
     }
 }

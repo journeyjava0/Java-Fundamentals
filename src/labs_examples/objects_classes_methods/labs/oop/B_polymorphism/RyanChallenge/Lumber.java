@@ -3,12 +3,12 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism.RyanChalle
 public class Lumber implements Amount {
 
     @Override
-    public void amnt(int num) {
+    public void getAmnt(int num) {
         System.out.println(num + " sq ft of lumber needed");
     }
 
     @Override
-    public void cost(int cost) {
+    public void getCost(int cost) {
         System.out.println("Lumber cost is $" + cost);
     }
 }

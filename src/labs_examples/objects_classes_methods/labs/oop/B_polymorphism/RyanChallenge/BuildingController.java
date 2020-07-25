@@ -3,22 +3,23 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism.RyanChalle
 public class BuildingController {
 
     public static void main(String[] args) {
-       BuildingMaterials myHouse = new BuildingMaterials(new PlyWood(), new CementDriveway());
-       myHouse.lumber.amnt(850);
-       myHouse.concrete.amnt(300);
-       myHouse.lumber.cost(5000);
+       BuildingMaterials myHouse = new BuildingMaterials(new PlyWood(), new CementDriveway("Portland"));
+       myHouse.lumber.getAmnt(850);
+       myHouse.concrete.getAmnt(300);
+       myHouse.lumber.getCost(5000);
+       System.out.println(myHouse.concrete.getType());
        System.out.println(" ");
 
-       BuildingMaterials house1 = new BuildingMaterials(new Studs(), new PatioCement());
-       house1.lumber.amnt(500);
-       house1.concrete.amnt(200);
-       house1.lumber.cost(4000);
+       BuildingMaterials house1 = new BuildingMaterials(new Studs(), new PatioCement("Other"));
+       house1.lumber.getAmnt(500);
+       house1.concrete.getAmnt(200);
+       house1.lumber.getCost(4000);
        System.out.println(" ");
 
-       BuildingMaterials house2 = new BuildingMaterials(new Lumber(), new Concrete());
-       house2.lumber.amnt(2);
-       house2.concrete.amnt(4);
-       house2.concrete.cost(500);
+       BuildingMaterials house2 = new BuildingMaterials(new Lumber(), new Concrete("St Louis"));
+       house2.lumber.getAmnt(2);
+       house2.concrete.getAmnt(4);
+       house2.concrete.getCost(500);
     }
 }
 

@@ -1,4 +1,4 @@
 package labs_examples.objects_classes_methods.labs.oop.B_polymorphism.RyanChallenge;
 
-public interface Price {
+public class CementDriveway {
 }

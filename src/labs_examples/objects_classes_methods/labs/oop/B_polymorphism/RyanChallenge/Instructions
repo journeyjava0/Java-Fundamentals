@@ -1,0 +1,6 @@
+ToDo:
+Create a new example of a class that has nothing but Interfaces (or Parent classes) as instance variables
+(like we did with the Computer class)
+8:33
+show how to make a very “loosely coupled” class that doesn’t depend on a single specific implementation
+of a given class

@@ -19,6 +19,11 @@ public class Car extends LandTransport {
         System.out.println("Step 1: Ensure key fob in car and push button");
     }
 
+    @Override
+    public void mpg (int mpg) {
+        System.out.println(mpg + " mpg");
+    }
+
     public String getMake() {
         return make;
     }

@@ -1,8 +1,15 @@
 
 Without running the code below, please tell me what will print. Why?
 
+My initial thought was "Child Called" ... Ran the code and then was surprised that both "Parent Called" and then
+"Child" called were printed. After using the debugger and step into, it shows inheritance ... basically it starts with
+the child method then goes to the superclass of Parent then prints "Parent Called" then goes back to the Child method
+and prints "Child called". In exercise 04, a specific method of the child class was called whereas here, there's a
+call to both methods (the one in the Parent and the Child) so both are therefore executed, starting with the Parent
+method. I didn't realize that this would then cascade down the tree.
 
-
+Question: So if a specific method from a sub class isn't specified, Java executes all the methods starting with the
+uppermost superclass and then cascading down through the subclasses?
 
 public class InheritanceTest
 {

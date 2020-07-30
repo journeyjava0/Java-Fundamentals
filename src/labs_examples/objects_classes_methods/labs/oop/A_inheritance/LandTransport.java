@@ -26,7 +26,16 @@ public class LandTransport extends TransportationMode {
         return numPax;
     }
 
-    public void setNumPax(int numPax) {
-        this.numPax = numPax;
+    public void setNumPax(int numPax) { this.numPax = numPax; }
+
+    @Override
+    public String toString() {
+        return "LandTransport{" +
+                "numWheels=" + numWheels +
+                ", numPax=" + numPax +
+                ", gasEngine=" + gasEngine +
+                ", electricEngine=" + electricEngine +
+                ", noEngine=" + noEngine +
+                '}';
     }
 }

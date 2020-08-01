@@ -13,6 +13,10 @@ public class TransportationMode {
         System.out.println("Step 1: place key in ignition");
     }
 
+    public void mpg (int mpg) {
+        System.out.println("MPG is " + mpg);
+    }
+
     public TransportationMode(boolean gasEngine, boolean electricEngine, boolean noEngine) {
         this.gasEngine = gasEngine;
         this.electricEngine = electricEngine;
@@ -43,5 +47,12 @@ public class TransportationMode {
         this.noEngine = noEngine;
     }
 
-
+    @Override
+    public String toString() {
+        return "TransportationMode{" +
+                "gasEngine=" + gasEngine +
+                ", electricEngine=" + electricEngine +
+                ", noEngine=" + noEngine +
+                '}';
+    }
 }

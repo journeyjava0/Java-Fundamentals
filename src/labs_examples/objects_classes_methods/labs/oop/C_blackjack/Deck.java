@@ -2,77 +2,98 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Deck {
 
-    Card[] cards;
-    ArrayList<Integer> usedCards;
-    String[] suits = {"♠", "♦", "♥", "♣"};
-    ArrayList<String> cardList = new ArrayList<>();
-
-//    1) In the Deck.java class, create a method that will populate the Card[] with 52 unique Card object. The cards
-//    should mimic an actual card deck. It should contain four aces (spades, hearts, diamonds, clubs), four 2's
-//            (spades, hearts, diamonds, clubs), four 3's (spades, hearts, diamonds, clubs), ... up through Jacks, Queens and Kings
-
-    public void createDeck () {
-
-        for (String s : suits) {
-            cardList.add("Ace " + s);
-        }
-
-        for (int i = 2; i < 11; i++) {
-            for (String s : suits) {
-                cardList.add(i + " " + s);
-            }
-        }
-
-        for (String s : suits) {
-            cardList.add("Jack " + s);
-        }
-
-        for (String s : suits) {
-            cardList.add("Queen " + s);
-        }
-
-        for (String s : suits) {
-            cardList.add("King " + s);
-        }
-
-        System.out.println(cardList.toString());
-
-        cardList.toArray();
-        //Question: I have an array list of my deck, but how to put into the cards array?
-        for (int i = 0; i < cardList.size(); i++){
-            cards[i] = cardList[i];
-
-        }
-    }
+    private Card[] cards;
+    private ArrayList<Integer> usedCards;
+    private String[] suits = {"♠", "♦", "♥", "♣"};
 
     public Deck() {
-
+        cards = new Card[52];
+        usedCards = new ArrayList<>();
+        populateDeck();
     }
 
-
-    public Deck(Card[] cards, ArrayList<Integer> usedCards) {
-        this.cards = cards;
-        this.usedCards = usedCards;
+    public void populateDeck () {
+        int index = 0;
+        for(int i = 1; i < 14; i++){
+            for(String s : suits) {
+                Card c = new Card(i, s);
+                cards[index] = c;
+                index++;
+            }
+        }
     }
 
-    public Card[] getCards() {
-        return cards;
+    public void deal(Player player){
+        Random r = new Random();
+        int index = r.nextInt(52);
+
+        while (usedCards.contains(index)){
+            index = r.nextInt(52);
+        }
+
+        usedCards.add(index);
+        Card c = cards[index];
+        player.getHand().getCards().add(c);
     }
 
-    public void setCards(Card[] cards) {
-        this.cards = cards;
-    }
+     public void dealAnotherCard (Player p1, Player p2) {
+         Scanner anotherCard = new Scanner(System.in);
+         System.out.println(p1.getName() + " do you want another card? (y/n)");
+         String hit = anotherCard.next();
 
-    public ArrayList<Integer> getUsedCards() {
-        return usedCards;
-    }
+         if (hit.equalsIgnoreCase("n")) {
+             System.out.println(p1.getName() + " Your cards are " + p1.getHand());
 
-    public void setUsedCards(ArrayList<Integer> usedCards) {
-        this.usedCards = usedCards;
-    }
+             if (p2.getHand().getHandValue() <= 16 || p2.getHand().getHandValue() < p1.getHand().getHandValue()){
+                 System.out.println("Computer has " + p2.getHand() + " and will hit");
+                 deal(p2);
+                 System.out.println("Computer has " + p2.getHand());
+             }
+
+             if (p2.getHand().getHandValue() > 21) {
+                 System.out.println("Computer lost");
+                 return;
+             }
+         }
+
+         if (hit.equalsIgnoreCase("y")) {
+             deal(p1);
+             System.out.println(p1.getName() + " Your cards are " + p1.getHand());
+
+             if (p2.getHand().getHandValue() < 16) {
+                 System.out.println("Computer has " + p2.getHand() + " and will hit");
+                 deal(p2);
+                 System.out.println("Computer has " + p2.getHand());
+                    if (p2.getHand().getHandValue() > 21) {
+                        System.out.println("Computer lost");
+                        return;
+                    }
+                     } else System.out.println("Computer stays " + p2.getHand());
+
+
+                     if (p1.getHand().getHandValue() < 21) {
+                         dealAnotherCard(p1, p2);
+                     }
+
+                     if (p1.getHand().getHandValue() == 21 || p2.getHand().getHandValue() == 21) {
+                         return;
+                     }
+
+                     if (p1.getHand().getHandValue() > 21 || p1.getHand().getHandValue() > 21) {
+                         return;
+                     }
+                 }
+
+         if (!hit.equalsIgnoreCase("y") && !hit.equalsIgnoreCase("n")) {
+                     System.out.println("not a valid input, try again");
+                     dealAnotherCard(p1, p2);
+                 }
+             }
 
     @Override
     public String toString() {

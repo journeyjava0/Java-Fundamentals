@@ -1,14 +1,12 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 public class Player {
-    String name;
-    Hand hand;
-    int potValue;
+    private String name;
+    private Hand hand;
 
-    public Player(String name, Hand hand, int potValue) {
+    public Player(String name) {
         this.name = name;
-        this.hand = hand;
-        this.potValue = potValue;
+        hand = new Hand();
     }
 
     public String getName() {
@@ -27,20 +25,11 @@ public class Player {
         this.hand = hand;
     }
 
-    public int getPotValue() {
-        return potValue;
-    }
-
-    public void setPotValue(int potValue) {
-        this.potValue = potValue;
-    }
-
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
                 ", hand=" + hand +
-                ", potValue=" + potValue +
                 '}';
     }
 }

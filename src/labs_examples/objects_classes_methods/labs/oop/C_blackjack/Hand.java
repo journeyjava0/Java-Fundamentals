@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 public class Hand {
 
-    ArrayList<Card> cards;
-    int handValue;
+    private ArrayList<Card> cards = new ArrayList<>();
+    private int handValue;
+
+    public Hand() {
+
+    }
 
     public Hand(ArrayList<Card> cards, int handValue) {
         this.cards = cards;
@@ -21,7 +25,14 @@ public class Hand {
     }
 
     public int getHandValue() {
-        return handValue;
+        int totalScore = 0;
+        for(Card c : cards){
+            if(c.getCardValue() > 10){
+                totalScore+= 10;
+            } else
+                totalScore += c.getCardValue();
+        }
+        return totalScore;
     }
 
     public void setHandValue(int handValue) {
@@ -29,10 +40,10 @@ public class Hand {
     }
 
     @Override
-    public String toString() {
-        return "Hand{" +
-                "cards=" + cards +
-                ", handValue=" + handValue +
-                '}';
+    public String toString() { //print out the player's hand
+        StringBuilder sb = new StringBuilder();
+        sb.append(cards.toString());
+        // ...
+        return sb.toString();
     }
 }

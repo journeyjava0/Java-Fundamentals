@@ -20,6 +20,14 @@ public class BuildingController {
        house2.lumber.getAmnt(2);
        house2.concrete.getAmnt(4);
        house2.concrete.getCost(500);
+
+       Lumber deck = new Lumber();
+       Concrete patio = new Concrete("Portland");
+       BuildingMaterials house3 = new BuildingMaterials(deck, patio);
+       house3.lumber.getAmnt(500);
+       house3.concrete.setType("quickcrete");
+       house3.lumber.getCost(5000);
+       System.out.println(house3.concrete.getType());
     }
 }
 

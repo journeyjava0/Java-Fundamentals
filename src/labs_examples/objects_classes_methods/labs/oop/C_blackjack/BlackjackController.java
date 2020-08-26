@@ -5,6 +5,13 @@ import java.util.Scanner;
 //Question: Can we go through the warnings in this class?
 public class BlackjackController {
 
+    //Question: these variables are now shared across all instances of the BlackjackController Class so
+    //if there are 5 people playing at the same time, it's not going to work ... what if i just made the variables
+    //non-static so that each instance of the BlackjackController gets it's own copy of the variables?
+    private static int gamesPlayed = 0;
+    private static int playerWins = 0;
+    private static int computerWins = 0;
+
     public static void main(String[] args) {
         BlackjackController controller = new BlackjackController();
         String name = Player.askName();
@@ -13,7 +20,8 @@ public class BlackjackController {
     }
 
     //Methods Section
-    public void playGame(String name) {
+    //TODO something ins't quite right with the logic, the hand is not re-dealt after a win or a loss
+     public void playGame(String name) {
         Deck deck = new Deck();
         //create player1 and the computer
         Player p1 = new Player(name);
@@ -32,11 +40,14 @@ public class BlackjackController {
             dealAnotherCardToComputer(deck, p2, p1);
             checkScore(p1, p2);
 
-            //See if they want to play again
-
+            //Keep track of number of games played
+            gamesPlayed++;
+            System.out.println("You have played " + gamesPlayed + " games.");
+            System.out.println("You won " + playerWins + " games.");
+            System.out.println("The computer won " + computerWins + " games.");
         } while (playAgain(p1));
-    }
 
+    }
 
     //Welcomes the user to the game
     public void welcome(String name) {
@@ -62,8 +73,6 @@ public class BlackjackController {
         System.out.println(blackJack);
         int x = Math.multiplyExact(2,3);
     }
-
-
 
     //Deal first card to player
     public void dealFirstCards(Deck deck, Player player) {
@@ -110,7 +119,7 @@ public class BlackjackController {
                     Scanner hit = new Scanner(System.in);
                     dealCard = hit.next();
                 } while (!dealCard.equalsIgnoreCase("y") && !dealCard.equalsIgnoreCase("n"));
-//TODO
+
                 if (dealCard.equalsIgnoreCase("n") || dealCard.equalsIgnoreCase("n")) {
                     System.out.println(p1.getName() + " you have " + p1.getHand());
                 }
@@ -128,29 +137,35 @@ public class BlackjackController {
         System.out.println("Computer has " + p2.getHand());
     }
 
+    //TODO   //Need to track how many times the computer wins, and how many times the player wins
+    //define a private static variable countComputerWins and countPlayerWins in the class?
     public void checkScore(Player p1, Player p2) {
         //if both computer && p1 < 21, but p1 > computer, p1 wins, otherwise p1 loses
         if (p1.getHand().getHandValue() < 21 && p1.getHand().getHandValue() > p2.getHand().getHandValue()) {
             System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
             p1.setPot(p1.getPot() + p1.getPlayerBet());
+            playerWins++;
         }
 
         //if both computer && p1 < 21, however computer > p1, computer wins, p1 loses
         if (p2.getHand().getHandValue() < 21 && p2.getHand().getHandValue() > p1.getHand().getHandValue()) {
             System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot() - (p1.getPlayerBet())));
             p1.setPot(p1.getPot() - p1.getPlayerBet());
+            computerWins++;
         }
 
         //if p1 > 21, loss for p1 or if computer gets blackjack, loss for p1
         else if (p1.getHand().getHandValue() > 21) {
             System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot() - (p1.getPlayerBet())));
             p1.setPot(p1.getPot() - p1.getPlayerBet());
+            computerWins++;
         }
 
         //if computer > 21, win for p1
         else if (p2.getHand().getHandValue() > 21) {
             System.out.println(p1.getName() + " You won");
             p1.setPot(p1.getPot() + p1.getPlayerBet());
+            playerWins++;
         }
 
         //if p1 gets blackjack
@@ -159,6 +174,7 @@ public class BlackjackController {
             blackJack();
             System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
             p1.setPot(p1.getPot() + p1.getPlayerBet());
+            playerWins++;
         }
 
         //if p1 & computer bust, then it's a tie

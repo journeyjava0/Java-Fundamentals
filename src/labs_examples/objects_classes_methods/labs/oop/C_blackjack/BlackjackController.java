@@ -2,15 +2,14 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 import java.util.Scanner;
 
-//Question: Can we go through the warnings in this class?
 public class BlackjackController {
-
-    //Question: these variables are now shared across all instances of the BlackjackController Class so
-    //if there are 5 people playing at the same time, it's not going to work ... what if i just made the variables
-    //non-static so that each instance of the BlackjackController gets it's own copy of the variables?
+//TODO look in the Player class and how I'm doing the betting
+    //also need to keep track of the total bet in all rounds
+    //otherwise it resets
+    //once done with changes to both of these files, then I need to
+    //copy and past them into the actual git folder then push to the BlackJack repo
+    //and update the readme file
     private static int gamesPlayed = 0;
-    private static int playerWins = 0;
-    private static int computerWins = 0;
 
     public static void main(String[] args) {
         BlackjackController controller = new BlackjackController();
@@ -20,14 +19,15 @@ public class BlackjackController {
     }
 
     //Methods Section
-    //TODO something ins't quite right with the logic, the hand is not re-dealt after a win or a loss
-     public void playGame(String name) {
-        Deck deck = new Deck();
+    public void playGame(String name) {
+        Deck deck;
         //create player1 and the computer
         Player p1 = new Player(name);
         p1.getBet();
         Player p2 = new Player("Computer");
         do {
+            deck = new Deck();
+            p1.setGamesPlayed(p1.getGamesPlayed() + 1);
             //deal first card to player and computer
             dealFirstCards(deck, p1);
             dealFirstCards(deck, p2);
@@ -40,11 +40,14 @@ public class BlackjackController {
             dealAnotherCardToComputer(deck, p2, p1);
             checkScore(p1, p2);
 
+            //Clear hands
+            p1.clearHand();
+            p2.clearHand();
+
             //Keep track of number of games played
-            gamesPlayed++;
-            System.out.println("You have played " + gamesPlayed + " games.");
-            System.out.println("You won " + playerWins + " games.");
-            System.out.println("The computer won " + computerWins + " games.");
+            System.out.println("You have played " + p1.getGamesPlayed() + " games.");
+            System.out.println("You won " + p1.getNumWins() + " games.");
+            System.out.println("The computer won " + p2.getNumWins() + " games.");
         } while (playAgain(p1));
 
     }
@@ -120,10 +123,10 @@ public class BlackjackController {
                     dealCard = hit.next();
                 } while (!dealCard.equalsIgnoreCase("y") && !dealCard.equalsIgnoreCase("n"));
 
-                if (dealCard.equalsIgnoreCase("n") || dealCard.equalsIgnoreCase("n")) {
+                if (dealCard.equalsIgnoreCase("n")) {
                     System.out.println(p1.getName() + " you have " + p1.getHand());
                 }
-                if (dealCard.equalsIgnoreCase("y") || dealCard.equalsIgnoreCase("y")) {
+                else if (dealCard.equalsIgnoreCase("y")) {
                     dealAnotherCardToPlayer(deck, p1);
                 }
             }
@@ -137,35 +140,34 @@ public class BlackjackController {
         System.out.println("Computer has " + p2.getHand());
     }
 
-    //TODO   //Need to track how many times the computer wins, and how many times the player wins
-    //define a private static variable countComputerWins and countPlayerWins in the class?
+    //Logic chain to see who won and to keep score
     public void checkScore(Player p1, Player p2) {
         //if both computer && p1 < 21, but p1 > computer, p1 wins, otherwise p1 loses
         if (p1.getHand().getHandValue() < 21 && p1.getHand().getHandValue() > p2.getHand().getHandValue()) {
             System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
             p1.setPot(p1.getPot() + p1.getPlayerBet());
-            playerWins++;
+            p1.setNumWins(p1.getNumWins() +1 );
         }
 
         //if both computer && p1 < 21, however computer > p1, computer wins, p1 loses
         if (p2.getHand().getHandValue() < 21 && p2.getHand().getHandValue() > p1.getHand().getHandValue()) {
             System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot() - (p1.getPlayerBet())));
             p1.setPot(p1.getPot() - p1.getPlayerBet());
-            computerWins++;
+            p2.setNumWins(p2.getNumWins() +1 );
         }
 
         //if p1 > 21, loss for p1 or if computer gets blackjack, loss for p1
         else if (p1.getHand().getHandValue() > 21) {
             System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot() - (p1.getPlayerBet())));
             p1.setPot(p1.getPot() - p1.getPlayerBet());
-            computerWins++;
+            p2.setNumWins(p2.getNumWins() +1 );
         }
 
         //if computer > 21, win for p1
         else if (p2.getHand().getHandValue() > 21) {
             System.out.println(p1.getName() + " You won");
             p1.setPot(p1.getPot() + p1.getPlayerBet());
-            playerWins++;
+            p1.setNumWins(p1.getNumWins() +1 );
         }
 
         //if p1 gets blackjack
@@ -174,7 +176,7 @@ public class BlackjackController {
             blackJack();
             System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
             p1.setPot(p1.getPot() + p1.getPlayerBet());
-            playerWins++;
+            p1.setNumWins(p1.getNumWins() +1 );
         }
 
         //if p1 & computer bust, then it's a tie
@@ -188,49 +190,23 @@ public class BlackjackController {
         }
     }
 
-    public void foobar(){
-        //print out foo for every number that's a multiple of 3
-        //print out bar for every number that's a multiple of 5
-        //print out foobar for every number that's a multiple of 15
-        for (int i = 0; i < 100; i++ ){
-            if (i%15 == 0){
-                System.out.println("foobar");
-            } else if(i%3 == 0){
-                System.out.println("foo");
-            } else if (i%5 == 0){
-                System.out.println("bar");
-            }
-        }
-    }
-
+    //See if they want to play again
     public boolean playAgain(Player p1) {
         Scanner playAgain = new Scanner(System.in);
         System.out.println(p1.getName() + " do you want to play again? (y/n)");
         String play = playAgain.next();
         boolean round = play.equalsIgnoreCase("y");
 
-        //assume the user indicates 'y' or 'n', if 'y' check if they have enough money left
-        if (round && p1.getPot() >= p1.getPot() - p1.getPlayerBet()) {
-            System.out.println(p1.getName() + " you have $" + p1.getPot() + " remaining ...");
-        } else if (play.equalsIgnoreCase("n")) {
-            System.out.println(p1.getName() + " you have $" + p1.getPot() + " thank you for playing ...");
-            blackJack();
-            System.exit(0);
-        } else if (round && p1.getPot() == 0 || p1.getPot() < p1.getPot() - p1.getPlayerBet()) {
-            System.out.println(p1.getName() + " Looks like you need more money to play again");
-            System.out.println(p1.getName() + " you have $" + p1.getPot() + " thanks for playing ...");
-            blackJack();
-            System.exit(0);
-        }
-        //Check if it was a valid user input?
+        //Check if it was a valid user input
         if (!play.equalsIgnoreCase("n") && !play.equalsIgnoreCase("y")) {
             do {
                 System.out.println(p1.getName() + " that's not a valid input, do you want to play again (y/n)");
                 Scanner valid = new Scanner(System.in);
                 play = valid.next();
             } while (!play.equalsIgnoreCase("y") && !play.equalsIgnoreCase("n"));
-        } else if (play.equalsIgnoreCase("y") && p1.getPot() >= p1.getPot() - p1.getPlayerBet()) {
-            System.out.println(p1.getName() + " you have $" + p1.getPot() + " remaining ...");
+        } if (play.equalsIgnoreCase("y") && p1.getPot() >= p1.getPot() - p1.getPlayerBet()) {
+            System.out.println(p1.getName() + " you have won a total of $" + p1.getPot());
+            playGame(p1.getName());
         } else if (play.equalsIgnoreCase("n")) {
             System.out.println(p1.getName() + " you have $" + p1.getPot() + " thank you for playing ...");
             blackJack();

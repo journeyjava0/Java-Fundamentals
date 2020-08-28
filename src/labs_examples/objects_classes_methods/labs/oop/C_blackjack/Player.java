@@ -7,6 +7,8 @@ public class Player {
     private Hand hand;
     private int playerBet;
     private int pot;
+    private int numWins;
+    private int gamesPlayed;
 
     public Player(String name) {
         this.name = name;
@@ -18,7 +20,7 @@ public class Player {
         Scanner bet = new Scanner(System.in);
         int count = 0;
         do {
-            System.out.println("How much would you like to start with? $");
+            System.out.println("How much would you like bet? $");
             System.out.println("Each bet is automatically 10% of your remaining pot");
             while (!bet.hasNextInt()) {
                 System.out.println("That's not a valid input " + name + " let's try that again!");
@@ -73,11 +75,31 @@ public class Player {
         this.hand = hand;
     }
 
+    public int getNumWins() {
+        return numWins;
+    }
+
+    public void setNumWins(int numWins) {
+        this.numWins = numWins;
+    }
+
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
+
+    public void setGamesPlayed(int gamesPlayed) {
+        this.gamesPlayed = gamesPlayed;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
                 ", hand=" + hand +
                 '}';
+    }
+
+    public void clearHand() {
+        hand = new Hand();
     }
 }

@@ -3,7 +3,8 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 import java.util.Scanner;
 
 public class BlackjackController {
-//TODO look in the Player class and how I'm doing the betting
+//TODO look in the Player class and how I'm doing the betting, also counting the
+    //number of games played and won isn't working
     //also need to keep track of the total bet in all rounds
     //otherwise it resets
     //once done with changes to both of these files, then I need to
@@ -27,7 +28,7 @@ public class BlackjackController {
         Player p2 = new Player("Computer");
         do {
             deck = new Deck();
-            p1.setGamesPlayed(p1.getGamesPlayed() + 1);
+
             //deal first card to player and computer
             dealFirstCards(deck, p1);
             dealFirstCards(deck, p2);
@@ -43,6 +44,8 @@ public class BlackjackController {
             //Clear hands
             p1.clearHand();
             p2.clearHand();
+
+            p1.setGamesPlayed(p1.getGamesPlayed() +1);
 
             //Keep track of number of games played
             System.out.println("You have played " + p1.getGamesPlayed() + " games.");

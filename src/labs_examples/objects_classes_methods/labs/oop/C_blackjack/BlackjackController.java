@@ -45,7 +45,9 @@ public class BlackjackController {
             p1.clearHand();
             p2.clearHand();
 
-            p1.setGamesPlayed(p1.getGamesPlayed() +1);
+            //Keep track of how many games player 1 has played
+            p1.setGamesPlayed(p1.getGamesPlayed() );//+1);
+
 
             //Keep track of number of games played
             System.out.println("You have played " + p1.getGamesPlayed() + " games.");

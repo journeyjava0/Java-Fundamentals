@@ -6,7 +6,7 @@ public class Player {
     private String name;
     private Hand hand;
     private int playerBet;
-    private int pot;
+    private static int pot = 0;
     private int numWins;
     private int gamesPlayed;
 
@@ -20,14 +20,19 @@ public class Player {
         Scanner bet = new Scanner(System.in);
         int count = 0;
         do {
-            System.out.println("How much would you like bet? $");
+            if (gamesPlayed == 0) {
+                System.out.println("How much would you like bet? $");
+            }
+            else if (gamesPlayed >=1){
+                System.out.println("You have $" + pot + " in you pot for this round.");
+            }
             System.out.println("Each bet is automatically 10% of your remaining pot");
             while (!bet.hasNextInt()) {
                 System.out.println("That's not a valid input " + name + " let's try that again!");
                 bet.next();
                 count++;
             }
-            pot = bet.nextInt();
+            pot = bet.nextInt() + pot;
         } while (pot <= 0);
 
         if (count > 0) {

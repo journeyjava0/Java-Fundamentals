@@ -149,21 +149,21 @@ public class BlackjackController {
     public void checkScore(Player p1, Player p2) {
         //if both computer && p1 < 21, but p1 > computer, p1 wins, otherwise p1 loses
         if (p1.getHand().getHandValue() < 21 && p1.getHand().getHandValue() > p2.getHand().getHandValue()) {
-            System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
+            System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + p1.getPlayerBet()));
             p1.setPot(p1.getPot() + p1.getPlayerBet());
             p1.setNumWins(p1.getNumWins() +1 );
         }
 
         //if both computer && p1 < 21, however computer > p1, computer wins, p1 loses
         if (p2.getHand().getHandValue() < 21 && p2.getHand().getHandValue() > p1.getHand().getHandValue()) {
-            System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot() - (p1.getPlayerBet())));
+            System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot()));
             p1.setPot(p1.getPot() - p1.getPlayerBet());
             p2.setNumWins(p2.getNumWins() +1 );
         }
 
         //if p1 > 21, loss for p1 or if computer gets blackjack, loss for p1
         else if (p1.getHand().getHandValue() > 21) {
-            System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot() - (p1.getPlayerBet())));
+            System.out.println(p1.getName() + " you lost $" + p1.getPlayerBet() + " and have $" + (p1.getPot()));
             p1.setPot(p1.getPot() - p1.getPlayerBet());
             p2.setNumWins(p2.getNumWins() +1 );
         }
@@ -179,7 +179,7 @@ public class BlackjackController {
         else if (p1.getHand().getHandValue() == 21) {
             System.out.println(p1.getName() + " ******************* ");
             blackJack();
-            System.out.println(p1.getName() + " you won $" + p1.getPlayerBet() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
+            System.out.println(p1.getName() + " you won $" + p1.getPot() + " and have $" + (p1.getPot() + (p1.getPlayerBet())));
             p1.setPot(p1.getPot() + p1.getPlayerBet());
             p1.setNumWins(p1.getNumWins() +1 );
         }
@@ -195,6 +195,8 @@ public class BlackjackController {
         }
     }
 
+    //TODO this logic isn't quite right as when the player is out of money the
+    //game keeps going
     //See if they want to play again
     public boolean playAgain(Player p1) {
         Scanner playAgain = new Scanner(System.in);
@@ -210,7 +212,7 @@ public class BlackjackController {
                 play = valid.next();
             } while (!play.equalsIgnoreCase("y") && !play.equalsIgnoreCase("n"));
         } if (play.equalsIgnoreCase("y") && p1.getPot() >= p1.getPot() - p1.getPlayerBet()) {
-            System.out.println(p1.getName() + " you have won a total of $" + p1.getPot());
+            System.out.println(p1.getName() + " you have a total of $" + p1.getPot() + " remaining in your pot.");
             playGame(p1.getName());
         } else if (play.equalsIgnoreCase("n")) {
             System.out.println(p1.getName() + " you have $" + p1.getPot() + " thank you for playing ...");

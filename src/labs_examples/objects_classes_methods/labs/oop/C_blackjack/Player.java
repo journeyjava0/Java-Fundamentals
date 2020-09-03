@@ -8,7 +8,7 @@ public class Player {
     private int playerBet;
     private static int pot = 0;
     private int numWins;
-    private int gamesPlayed;
+    private static int gamesPlayed = 0;
 
     public Player(String name) {
         this.name = name;
@@ -17,34 +17,33 @@ public class Player {
 
     //gets the user's bet
     public void getBet() {
-        Scanner bet = new Scanner(System.in);
-        int count = 0;
-        do {
-            if (gamesPlayed == 0) {
-                System.out.println("How much would you like bet? $");
-            }
-            else if (gamesPlayed >=1){
-                System.out.println("You have $" + pot + " in you pot for this round.");
-            }
-            System.out.println("Each bet is automatically 10% of your remaining pot");
-            while (!bet.hasNextInt()) {
-                System.out.println("That's not a valid input " + name + " let's try that again!");
-                bet.next();
-                count++;
-            }
-            pot = bet.nextInt() + pot;
-        } while (pot <= 0);
 
-        if (count > 0) {
-            System.out.println("That's better " + name);
+        Scanner bet = new Scanner(System.in);
+
+        if (gamesPlayed == 0) {
+            System.out.println("Each bet is automatically 10% of your initial pot");
+            System.out.println("How much would you like to start with? $");
+
+        //See if they provided a valid input
+            validInput(bet);
+
+            pot = bet.nextInt();
+            System.out.println("Really? Are you sure you want to bet $" + pot + "? Well, too late now, good luck!");
+
+            if (gamesPlayed > 0) {
+                System.out.println("You have $" + getPot() + " left.");
+            }
+
+            //playerBet = (int) Math.ceil(bet.nextInt() * .1);
+            gamesPlayed++;
         }
-        System.out.println("Really? Are you sure you want to bet $" + pot + "? Well, too late now, good luck!");
-        playerBet = (int) Math.ceil(pot * .1);
     }
 
-    //Returns the total pot ... how to calculate each time they bet how much they have left?
+    //TODO Returns the total pot ... how to calculate each time they bet how much they have left?
     public int getPot() {
-        return pot;
+        playerBet = (int) Math.ceil(pot * .1);
+        int totalPot = pot - playerBet;
+        return totalPot;
     }
 
     public void setPot(int pot) {
@@ -52,6 +51,7 @@ public class Player {
     }
 
     public int getPlayerBet() {
+        playerBet = (int) Math.ceil(pot * .1);
         return playerBet;
     }
 
@@ -63,6 +63,24 @@ public class Player {
         return name;
     }
 
+    public boolean validInput(Scanner bet){
+
+        int count = 0;
+
+        if(!bet.hasNextInt()) {
+            do {
+                System.out.println("That's not a valid input " + name + " let's try that again!");
+                bet.next();
+                if(bet.hasNextInt()){
+                    continue;
+                }
+                count++;
+            } while (!bet.hasNextInt()); // TODO this needs to check what's on line 35 and if no good we loop again
+        }
+        if (count > 0) {
+            System.out.println("That's better " + name);
+        } return bet.hasNextInt();
+    }
 
     public String getName() {
         return name;

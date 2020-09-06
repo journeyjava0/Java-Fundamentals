@@ -80,7 +80,7 @@ public class Player {
         if (count > 0) {
             System.out.println("That's better " + name);
         } return bet.hasNextInt();
-    }
+    } 
 
     public String getName() {
         return name;

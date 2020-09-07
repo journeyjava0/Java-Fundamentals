@@ -7,7 +7,8 @@ public class Player {
     private Hand hand;
     private int playerBet;
     private static int pot = 0;
-    private int numWins;
+    private static int numWins = 0;
+    private static int computerWins = 0;
     private static int gamesPlayed = 0;
 
     public Player(String name) {
@@ -33,17 +34,11 @@ public class Player {
             if (gamesPlayed > 0) {
                 System.out.println("You have $" + getPot() + " left.");
             }
-
-            //playerBet = (int) Math.ceil(bet.nextInt() * .1);
-            gamesPlayed++;
         }
     }
 
-    //TODO Returns the total pot ... how to calculate each time they bet how much they have left?
     public int getPot() {
-        playerBet = (int) Math.ceil(pot * .1);
-        int totalPot = pot - playerBet;
-        return totalPot;
+        return pot;
     }
 
     public void setPot(int pot) {
@@ -75,7 +70,7 @@ public class Player {
                     continue;
                 }
                 count++;
-            } while (!bet.hasNextInt()); // TODO this needs to check what's on line 35 and if no good we loop again
+            } while (!bet.hasNextInt());
         }
         if (count > 0) {
             System.out.println("That's better " + name);
@@ -98,12 +93,24 @@ public class Player {
         this.hand = hand;
     }
 
-    public int getNumWins() {
+    //Keep track of user wins separately from computer
+    public int getNumWinsP1() {
         return numWins;
     }
 
-    public void setNumWins(int numWins) {
+    //Need to keep track of computer wins separately from user wins
+    public int getNumWinsP2(){
+        return computerWins;
+    }
+
+    //Keep track of user wins separately from computer
+    public void setNumWinsP1(int numWins) {
         this.numWins = numWins;
+    }
+
+    //Need to keep track of computer wins separately from user wins
+    public void setNumWinsP2(int computerWins){
+        this.computerWins = computerWins;
     }
 
     public int getGamesPlayed() {

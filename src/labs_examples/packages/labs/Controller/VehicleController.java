@@ -12,7 +12,7 @@ public class VehicleController {
         corolla.slowDown();
 
         //trying to call protected method in a different package which won't work
-        corolla.speedUp();
+        //corolla.speedUp();
 
     }
 }

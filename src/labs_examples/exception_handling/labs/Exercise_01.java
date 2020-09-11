@@ -7,7 +7,7 @@ package labs_examples.exception_handling.labs;
  *
  */
 
-class Exercise_01 {
+public class Exercise_01 {
 
     public static void main(String[] args) {
         int[] nums = {2,4,6};

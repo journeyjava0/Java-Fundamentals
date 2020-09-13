@@ -20,7 +20,7 @@ import java.sql.SQLOutput;
 public class Exercise_03 {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
+
         int[][] twoDArray = new int[5][5];
         int count = 0;
 
@@ -40,8 +40,6 @@ public class Exercise_03 {
             }
             System.out.println();
         }
-=======
-        
->>>>>>> e6093c9093e159ebaeb26d25183a47e84e09b7ed
+
     }
 }

@@ -7,3 +7,8 @@ package labs_examples.exception_handling.labs;
  *
  */
 
+public class Exercise_06 {
+    public static void main(String[] args) {
+//see exercise 5 in same package
+    }
+}

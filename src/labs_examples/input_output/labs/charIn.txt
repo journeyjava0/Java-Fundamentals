@@ -1,0 +1,2 @@
+this is some text that will be written using a char stream
+line 2

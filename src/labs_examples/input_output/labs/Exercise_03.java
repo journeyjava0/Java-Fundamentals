@@ -79,7 +79,7 @@ public class Exercise_03 {
 
             int c;
             while ((c = dIn.read()) != -1) {
-                dOut.write(c);
+                dOut.writeChar((char) c);
             }
 
         } catch (FileNotFoundException e) {

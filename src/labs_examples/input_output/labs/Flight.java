@@ -1,15 +1,15 @@
 package labs_examples.input_output.labs;
 
-public class Flights {
+public class Flight {
     String airline;
-    int departureTime;
+    String departureTime;
     String departAirport;
     String arriveAirport;
 
-    public Flights(){
+    public Flight(){
     }
 
-    public Flights(String airline, int departureTime, String departAirport, String arriveAirport) {
+    public Flight(String airline, String departureTime, String departAirport, String arriveAirport) {
         this.airline = airline;
         this.departureTime = departureTime;
         this.departAirport = departAirport;
@@ -24,11 +24,11 @@ public class Flights {
         this.airline = airline;
     }
 
-    public int getDepartureTime() {
+    public String getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(int departureTime) {
+    public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
 
@@ -50,7 +50,7 @@ public class Flights {
 
     @Override
     public String toString() {
-        return "Flights{" +
+        return "Flight{" +
                 "airline='" + airline + '\'' +
                 ", departureTime=" + departureTime +
                 ", departAirport='" + departAirport + '\'' +

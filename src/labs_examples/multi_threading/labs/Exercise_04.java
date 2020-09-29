@@ -7,11 +7,16 @@ package labs_examples.multi_threading.labs;
  *      working as expected
  */
 
+//Question for Ryan: This seems to work, but why? Can we walk through this?
+//Interstingly, the order this runs in is Thread 1, Thread 3, Thread 2
 class Exercise_04 {
     public static void main(String[] args) {
-        MyThread thread1 = new MyThread("Hello");
-        MyThread thread2 = new MyThread("Good bye");
-        MyThread thread3 = new MyThread("That's all folks!");
+        Greeting greet = new Greeting(); //seems like I'm creating a "dummy" object
+        //just to pass in to the MyThread class ... confused on what's happening here
+        //and why
+        MyThread thread1 = new MyThread("Hello", greet);
+        MyThread thread2 = new MyThread("Good bye", greet);
+        MyThread thread3 = new MyThread("That's all folks!", greet);
     }
 
    //A class for a Greeting with a method that displays a simple message
@@ -30,20 +35,21 @@ class Exercise_04 {
     static class MyThread implements Runnable{
         Thread thread;
         String msg;
-        Greeting greeting;
+        Greeting greet;
 
-
-        MyThread(String msg) {
-           thread = new Thread (this, msg);
-           thread.start();
+        public MyThread(String msg, Greeting greet) {
+            this.msg = msg;
+            this.greet = greet;
+            thread = new Thread (this); // why doesn't this.thread work here?
+            thread.start();
         }
 
         @Override
         public void run() {
-            //Where is the greeting object instantiated? Why do I get an error here?
-            synchronized (greeting){
-                greeting.sayMessage(msg);
-            }
+            //This seems to be working ... not sure why
+            synchronized (greet){
+                greet.sayMessage(msg);
+           }
         }
     }
 }

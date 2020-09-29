@@ -7,8 +7,12 @@ package labs_examples.multi_threading.labs;
  *      working as expected
  */
 
+//What I'm trying to do is create 3 threads with three different greetings and use a synchronized block
+//so that it prints the 1st message, confirms the first message was printed then goes on to the next thread
+
+
 //Question for Ryan: This seems to work, but why? Can we walk through this?
-//Interstingly, the order this runs in is Thread 1, Thread 3, Thread 2
+//Interestingly, the order this runs in is Thread 1, Thread 3, Thread 2
 class Exercise_04 {
     public static void main(String[] args) {
         Greeting greet = new Greeting(); //seems like I'm creating a "dummy" object

@@ -1,5 +1,7 @@
 package labs_examples.multi_threading.labs;
 
+import labs_examples.multi_threading.labs.ThreadPractice.Set1.MyRunnable1;
+
 /**
  * Multithreading Exercise 1:
  *
@@ -15,17 +17,15 @@ class Exercise_01 {
         MyFirstRunnable thread2 = new MyFirstRunnable ("Second thread");
         MyFirstRunnable thread3 = new MyFirstRunnable("Third thread");
 
-        //TODO Slack this to Ryan
-        //start a 4th thread in a different way than threads 1 to 3
-        //Question for Ryan: How do I initiate a thread in a different way? Why doesn't thread 4 start?
-        Thread thread4 = new Thread("thread 4");
-        thread4.start();
+        Thread t4 = new Thread(new MyRunnable1());
+        t4.setName("fourth string");
+        t4.start();
 
         System.out.println("Main thread ended");
     }
 
     //Question for Ryan: Why does this need to be static?
-    public static class MyFirstRunnable implements Runnable {
+    public class MyFirstRunnable implements Runnable {
 
         //Instantiate Thread class
         Thread thread;
@@ -35,6 +35,7 @@ class Exercise_01 {
             thread = new Thread(this, name);
             thread.start();
         }
+
 
         //Overriding the Runnable Method. This is what is executed when the thread starts.
         @Override

@@ -13,7 +13,7 @@ package labs_examples.multi_threading.labs;
 
 //Question for Ryan: This seems to work, but why? Can we walk through this?
 //Interestingly, the order this runs in is Thread 1, Thread 3, Thread 2
-class Exercise_04 {
+public class Exercise_04 {
     public static void main(String[] args) {
         Greeting greet = new Greeting(); //seems like I'm creating a "dummy" object
         //just to pass in to the MyThread class ... confused on what's happening here
@@ -21,39 +21,47 @@ class Exercise_04 {
         MyThread thread1 = new MyThread("Hello", greet);
         MyThread thread2 = new MyThread("Good bye", greet);
         MyThread thread3 = new MyThread("That's all folks!", greet);
+        Ryan obj = new Ryan();
+        Thread t = new Thread(obj);
+        t.start();
+    }
+}
+//A class for a Greeting with a method that displays a simple message
+class Greeting {
+    public synchronized void sayMessage (String msg){
+        System.out.println("The message is " + msg);
+        try{
+            Thread.sleep(1000);
+        } catch (Exception e){
+            System.out.println("Thread interrupted");
+        }
+        System.out.println("Message was displayed was " + msg);
+    }
+}
+//Thread class + implementing Runnable interface
+ class MyThread implements Runnable{
+    Thread thread;
+    String msg;
+    Greeting greet;
+
+    public MyThread(String msg, Greeting greet) {
+        this.msg = msg;
+        this.greet = greet;
+        thread = new Thread (this); // why doesn't this.thread work here?
+        thread.start();
     }
 
-   //A class for a Greeting with a method that displays a simple message
-   static class Greeting {
-        public void sayMessage (String msg){
-            System.out.println("The message is " + msg);
-            try{
-                Thread.sleep(1000);
-            } catch (Exception e){
-                System.out.println("Thread interrupted");
-            }
-            System.out.println("Message was displayed was " + msg);
-        }
+    @Override
+    public void run() {
+        //This seems to be working ... not sure why
+         greet.sayMessage(msg);
+
     }
-    //Thread class + implementing Runnable interface
-    static class MyThread implements Runnable{
-        Thread thread;
-        String msg;
-        Greeting greet;
 
-        public MyThread(String msg, Greeting greet) {
-            this.msg = msg;
-            this.greet = greet;
-            thread = new Thread (this); // why doesn't this.thread work here?
-            thread.start();
-        }
-
-        @Override
-        public void run() {
-            //This seems to be working ... not sure why
-            synchronized (greet){
-                greet.sayMessage(msg);
-           }
-        }
+}
+class Ryan implements Runnable{
+    @Override
+    public void run(){
+        System.out.println("Ryan");
     }
 }

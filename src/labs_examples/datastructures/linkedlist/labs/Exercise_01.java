@@ -1,7 +1,7 @@
 package labs_examples.datastructures.linkedlist.labs;
 
 /**
- *      LinkedLists - Exercise_01
+ *      LinkedLists - MyFirstRunnable
  *
  *      Demonstrate your mastery of Java's built-in LinkedList class by demonstrating the following:
  *

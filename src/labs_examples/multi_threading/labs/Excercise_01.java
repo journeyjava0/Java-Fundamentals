@@ -24,8 +24,7 @@ class Exercise_01 {
         System.out.println("Main thread ended");
     }
 }
-    //Question for Ryan: Why does this need to be static?
-    class MyFirstRunnable implements Runnable {
+   class MyFirstRunnable implements Runnable {
 
         //Instantiate Thread class
         Thread thread;

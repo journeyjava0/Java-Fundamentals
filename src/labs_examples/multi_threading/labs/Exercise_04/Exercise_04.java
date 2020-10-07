@@ -1,4 +1,4 @@
-package labs_examples.multi_threading.labs;
+package labs_examples.multi_threading.labs.Exercise_04;
 
 /**
  * Multithreading Exercise 4:
@@ -7,14 +7,9 @@ package labs_examples.multi_threading.labs;
  *      working as expected
  */
 
-//What I'm trying to do is create 3 threads with three different greetings and use a synchronized block
-//so that it prints the 1st message, confirms the first message was printed then goes on to the next thread
-
 public class Exercise_04 {
     public static void main(String[] args) {
-        Greeting greet = new Greeting(); //seems like I'm creating a "dummy" object
-        //just to pass in to the MyThread class ... confused on what's happening here
-        //and why
+        Greeting greet = new Greeting();
         MyThread thread1 = new MyThread("Hello", greet);
         MyThread thread2 = new MyThread("Good bye", greet);
         MyThread thread3 = new MyThread("That's all folks!", greet);
@@ -23,40 +18,5 @@ public class Exercise_04 {
         t.start();
     }
 }
-//A class for a Greeting with a method that displays a simple message
-class Greeting {
-    public synchronized void sayMessage (String msg){
-        System.out.println("The message is " + msg);
-        try{
-            Thread.sleep(1000);
-        } catch (Exception e){
-            System.out.println("Thread interrupted");
-        }
-        System.out.println("Message was displayed was " + msg);
-    }
-}
-//Thread class + implementing Runnable interface
- class MyThread implements Runnable{
-    Thread thread;
-    String msg;
-    Greeting greet;
 
-    public MyThread(String msg, Greeting greet) {
-        this.msg = msg;
-        this.greet = greet;
-        thread = new Thread (this);
-        thread.start();
-    }
 
-    @Override
-    public void run() {
-        greet.sayMessage(msg);
-    }
-
-}
-class Ryan implements Runnable{
-    @Override
-    public void run(){
-        System.out.println("Ryan");
-    }
-}

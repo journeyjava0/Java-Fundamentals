@@ -4,10 +4,10 @@ package labs_examples.multi_threading.labs.Exercise_04.SyncBlockDemo;
 
 public class ControllerSyncBlockDemo {
     public static void main(String[] args) {
-    MessagePOJO msg1 = new MessagePOJO("Bob", "Hello");
-    MessagePOJO msg2 = new MessagePOJO("George", "Good morning");
-    MyRunnable r1 = new MyRunnable(msg1);
-    MyRunnable r2 = new MyRunnable(msg2);
+        MessagePOJO msg1 = new MessagePOJO("Bob", "Hello");
+        MessagePOJO msg2 = new MessagePOJO("George", "Good morning");
+        MyRunnable r1 = new MyRunnable(msg1);
+        MyRunnable r2 = new MyRunnable(msg1);
     }
 }
 //Expected output

@@ -10,15 +10,10 @@ public class MyRunnable implements Runnable {
         thread.start();
 
     }
-
-    @Override
+      @Override
     public void run() {
-       synchronized (messagePOJO){
-           for (int i = 0; i < 3; i++){
-               System.out.println("Iteration " + i + " of " + Thread.currentThread().getName());
-               System.out.println(messagePOJO.getMessage() + ", " + messagePOJO.getName());
-           }
-       }
+       messagePOJO.status();
+
     }
 }
 //Expected output

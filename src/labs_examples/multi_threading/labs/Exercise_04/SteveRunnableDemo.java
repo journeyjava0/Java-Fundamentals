@@ -1,4 +1,4 @@
-package labs_examples.multi_threading.labs;
+package labs_examples.multi_threading.labs.Exercise_04;
 
 public class SteveRunnableDemo {
     public static void main(String[] args) {

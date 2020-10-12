@@ -64,8 +64,9 @@ class MyThread8 implements Runnable {
     public void run() {
 
         if(thrd.getName().compareTo("Tick") == 0) {
-            for(int i=0; i<5; i++)
+            for(int i=0; i<5; i++) {
                 ttOb.tick(true);
+            }
             ttOb.tick(false);
         }
         else {

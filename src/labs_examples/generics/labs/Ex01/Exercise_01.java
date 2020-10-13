@@ -1,4 +1,4 @@
-package labs_examples.generics.labs;
+package labs_examples.generics.labs.Ex01;
 
 /**
  * Generics Exercise 1:

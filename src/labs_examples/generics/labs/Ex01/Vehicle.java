@@ -1,27 +1,27 @@
 package labs_examples.generics.labs.Ex01;
 
-public class Vehicle <T> {
-    T make;
-    T year;
+public class Vehicle <M, Y> {
+    M make;
+    Y year;
 
-    public Vehicle(T make, T year) {
+    public Vehicle(M make, Y year) {
         this.make = make;
         this.year = year;
     }
 
-    public T getMake() {
+    public M getMake() {
         return make;
     }
 
-    public void setMake(T make) {
+    public void setMake(M make) {
         this.make = make;
     }
 
-    public T getYear() {
+    public Y getYear() {
         return year;
     }
 
-    public void setYear(T year) {
+    public void setYear(Y year) {
         this.year = year;
     }
 

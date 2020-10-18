@@ -9,5 +9,7 @@ public class EnumController {
         if(myChoice == Books.FICTION){
             System.out.println("You chose fiction");
         } else System.out.println("You chose something else: " + myChoice.toString());
+        System.out.println(myChoice.getDescriptor1());
+        System.out.println(myChoice.getDescriptor2());
     }
 }

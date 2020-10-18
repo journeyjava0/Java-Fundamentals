@@ -21,14 +21,13 @@ public class ControllerEx2 {
     }
 
     //Change method return type as required ... chose int for fun :)
-    public static <N extends Number> int sum (ArrayList<N> n){
-       int x = 0;
+    public static <N extends Number> double sum (ArrayList<N> n){
+       double x = 0;
 
        for(int i = 0; i < n.size(); i++){
-           x += n.get(i).intValue();
+           x += n.get(i).doubleValue();
        }
-        return x;
-        }
-
+       return x;
     }
+}
 

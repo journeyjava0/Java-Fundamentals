@@ -6,7 +6,7 @@ numbers were passed in regardless of their type. */
 public class Task1 {
 
     public static void main(String[] args) {
-        System.out.println(sum(12, 10));
+        System.out.println(sum(12.1f, 10.2));
     }
 
     static <E extends Number> double sum(E num1, E num2){

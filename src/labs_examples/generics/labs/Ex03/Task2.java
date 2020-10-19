@@ -4,34 +4,46 @@ import java.util.*;
 
 // Write a generic method to count the number of elements in a "Collection" of Strings that are palindromes
 
-//TODO this counts accurately, however it lists every appearance of the 'String'
 public class Task2 {
     public static void main(String[] args) {
         ArrayList<String> list = new ArrayList<>();
         list.add("bob");
         list.add("bob");
-        list.add("radar");
+        list.add("raDar");
         list.add("radar");
         list.add("billy");
+        list.add("rAdar");
+        list.add("jill");
         list.add("rAdar");
 
         palindrome(list);
     }
 
     public static <E extends String> void palindrome(ArrayList<E> e) {
-        Set<String> st = new HashSet<String>(e);
 
-        //Since we just need to find palindromes, it's the same letters forward and backwards :)
-        //TODO, however, this is case senstitive so 'radar' and 'rAdar' are counted separately
-        //Need to find out how to ingore case on a HashSet
-        //Used HashSet to solve the 'repeating' issue
-        for (String s : st) {
+        String a = " ";
+        ArrayList<String> myList = new ArrayList<>();
+        //Convert to lower case
+        for (String s : e) {
+            a = s.toLowerCase();
+            myList.add(a);
+        }
+        String input = " ";
+        ArrayList<String> answers = new ArrayList<>();
 
-                System.out.println(s + " appears " + Collections.frequency(e, s) + " times");
+        for (int i = 0; i < myList.size(); i++) {
+           input = (myList.get(i) + " appears " + Collections.frequency(myList, myList.get(i)) + " times");
+           answers.add(input);
+        }
+
+        for (int i = 0; i < answers.size(); i++) {
+            if (i + 1 <= answers.size() && answers.get(i).equals(answers.get(answers.size() - (answers.size() -1)))) {
+                answers.remove(i);
             }
-                //System.out.println(s + " appears " + Collections.frequency(e, s) + " times");
+        }
+            System.out.println(answers.toString());
+
+        
     }
 }
-
-
 

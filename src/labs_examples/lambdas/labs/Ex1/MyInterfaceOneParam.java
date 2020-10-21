@@ -1,2 +1,5 @@
-package labs_examples.lambdas.labs.Ex1;public interface MyInterfaceOneParam {
+package labs_examples.lambdas.labs.Ex1;
+@FunctionalInterface
+public interface MyInterfaceOneParam {
+    String message(String str);
 }

@@ -12,11 +12,15 @@ public class CarPOJO<S> {
         this.color = color;
     }
 
-    public static void setSpeed (int speed){
+    public void printSpeed(int speed){
+        System.out.println(speed);
+    }
+
+    public void setSpeed (int speed){
         System.out.println("Car is going " + speed + " mph.");
     }
 
-    public void stopCar () {
+    public void stopCar (CarPOJO car) {
         System.out.println("Car is now stopped.");
     }
 

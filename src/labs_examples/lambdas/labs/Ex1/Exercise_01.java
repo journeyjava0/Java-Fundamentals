@@ -34,7 +34,7 @@ public class Exercise_01 {
         MyInterface1 obj = new MyInterface1() {
             @Override
             public void myMethod1() {
-                System.out.println("My second lambda!");
+                System.out.println("Anonymous inner class");
             }
         };
         obj.myMethod1();

@@ -1,10 +1,7 @@
 package labs_examples.lambdas.labs;
 
-import labs_examples.packages.labs.Vehicles.Car;
-
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 /**
  * Lambdas Exercise 3:
@@ -16,18 +13,19 @@ import java.util.function.Supplier;
  */
 public class Exercise_03{
     public static void main(String[] args) {
+        CarPOJO myCar = new CarPOJO("ford", "silver");
         //static method reference
-        Consumer<Integer> whatSpeed = CarPOJO::setSpeed;
-        CarPOJO.setSpeed(50);
+        Consumer<Integer> whatSpeed = myCar::printSpeed;
+        whatSpeed.accept(55);
 
         //instance method reference
-        Consumer<CarPOJO> carStatus = CarPOJO::stopCar;
+        Consumer<CarPOJO> carStatus = myCar::stopCar;
         CarPOJO myCar2 = new CarPOJO("Kia", "red");
-        carStatus.accept(myCar2);
+        carStatus.accept(myCar);
 
         //Constructor reference
-        BiFunction<String, String, CarPOJO> myCar = CarPOJO::new;
-        System.out.println(myCar.apply("Ford", "blue"));
-        System.out.println(myCar.apply("GMC", "black"));
-        }
+        BiFunction<String, String, CarPOJO> myCar3 = CarPOJO::new;
+        System.out.println(myCar3.apply("Ford", "blue"));
+        System.out.println(myCar3.apply("GMC", "black"));
+    }
 }

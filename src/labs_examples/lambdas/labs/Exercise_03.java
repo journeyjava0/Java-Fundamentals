@@ -15,7 +15,7 @@ public class Exercise_03{
     public static void main(String[] args) {
         CarPOJO myCar = new CarPOJO("ford", "silver");
         //static method reference
-        Consumer<Integer> whatSpeed = myCar::printSpeed;
+        Consumer<Integer> whatSpeed = myCar::setSpeed;
         whatSpeed.accept(55);
 
         //instance method reference

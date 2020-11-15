@@ -10,7 +10,11 @@ public class ControllerDoubleLinkedList {
         myDoubleList.addToFront("Three");
         myDoubleList.addToFront("Four");
         myDoubleList.printList(); //expecting Four, Three, Two, One
-        myDoubleList.remove("Three");
+        myDoubleList.addToEnd("Five");
+        myDoubleList.printList(); //expecting Four, Three, Two, One, Five
+        myDoubleList.remove("Five");
         myDoubleList.printList();
+        myDoubleList.remove("Two");
+        myDoubleList.printList();//expecting four, three, one
     }
 }

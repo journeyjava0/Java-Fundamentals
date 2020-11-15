@@ -26,13 +26,14 @@ public class MyDoubleLinkedList<T> {
     }
 
     public void addToFront(T data) {
+        Node<T> iterator = head;
         Node newNode = new Node(data);
 
-        if(head == null){
+        if (head == null) {
             head = newNode;
-        }
-        else {
-            newNode.next = head;
+        } else {
+            newNode.next = iterator;
+            newNode.prev = null;
             head = newNode;
         }
     }
@@ -48,6 +49,7 @@ public class MyDoubleLinkedList<T> {
                 iterator = iterator.next;
             }
             iterator.next = newNode;
+            newNode.prev = iterator;
         }
     }
 
@@ -69,21 +71,27 @@ public class MyDoubleLinkedList<T> {
 
     public void remove(T data) {
         Node<T> iterator = head;
+
         if (iterator == null) {
             return;
         } else {
             if (iterator.data.equals(data)) {
                 head = iterator.next;
+                iterator.prev = null;
                 return;
             }
             while (iterator.next != null) {
+                iterator = iterator.next;
+                iterator.prev = iterator;
 
                 if (iterator.next.data.equals(data)) {
                     if (iterator.next.next != null) {
                         iterator.next = iterator.next.next;
+                        iterator.prev = iterator.next;
                         return;
                     }
                     iterator.next = null;
+                    iterator.prev = iterator.prev.prev;
                 }
             }
         }

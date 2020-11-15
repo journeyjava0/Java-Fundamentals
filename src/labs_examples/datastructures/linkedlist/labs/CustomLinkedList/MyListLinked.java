@@ -77,7 +77,7 @@ public class MyListLinked<T> {
         if (head == null) {
             head = newNode;
         } else {
-            newNode.next = head;
+            newNode.next = iterator;
             head = newNode;
         }
     }
@@ -147,11 +147,9 @@ public class MyListLinked<T> {
         }
     }
 
-
-    //TODO can only remove from beginning or end of list and only on Node's value, not it's index
-    //so index == 0 || index = size -1
     public void remove(T data) {
         Node<T> iterator = head;
+
         if (iterator == null) {
             return;
         } else {
@@ -171,7 +169,6 @@ public class MyListLinked<T> {
             }
         }
     }
-
 
     public int size() {
         int count = 0;

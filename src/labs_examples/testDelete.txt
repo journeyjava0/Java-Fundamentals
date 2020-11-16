@@ -1,4 +1,4 @@
 test file. delete.
 line 2. 
 just a text file for practice and to keep current on using vim.
-Another text line.   
+Another line of text.   

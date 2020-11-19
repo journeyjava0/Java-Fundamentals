@@ -1,5 +1,7 @@
 package labs_examples.datastructures.linkedlist.labs.CustomDoubleLinkedList;
 
+import java.sql.SQLOutput;
+
 public class MyDoubleLinkedList<T> {
     private Node<T> head, tail;
 
@@ -11,6 +13,25 @@ public class MyDoubleLinkedList<T> {
                 addToFront(data[i]);
             }
         }
+    }
+
+    public void printNeighbours(T element){
+        Node<T> iterator = head;
+        while (!iterator.data.equals(element)){
+           if(iterator.next != null) {
+               iterator = iterator.next;
+           } else {
+               System.out.println("Element not found");
+               return;
+           }
+        }
+        if(iterator.prev != null){
+            System.out.print(iterator.prev.data + " - ");
+        } else System.out.print("null" + " - ");
+        if(iterator.next != null){
+            System.out.print(iterator.next.data);
+        } else System.out.print("null");
+        System.out.println(" ");
     }
 
     public boolean contains(T findItem) {

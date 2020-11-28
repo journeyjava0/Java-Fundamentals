@@ -1,13 +1,9 @@
-package labs_examples.datastructures.hashmap.labs;
+package labs_examples.datastructures.hashmap.labs.myHashMap.Timing;
 
-import sun.misc.Queue;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Stack;
-
 
 /**
- *      HashMaps Exercise_03
+ *      HashMaps TimerController
  *
  *      Create a new class that does the following:
  *
@@ -26,48 +22,21 @@ import java.util.Stack;
  *      4) delete 100 elements
  */
 
-public class Exercise_03 {
+public class TimerController {
     public static void main(String[] args) {
-
-
-        Queue<Integer> myQueue = new Queue<>();
-        HashMap<Integer, Integer> myHashMap = new HashMap<>();
-
-
         //LinkedList timer
-        runTimeLinkedList();
-
+        MyLinkedListTime.runTimeLinkedList();
         System.out.println(" ");
+
         //Stack timer
+        MyStackTime.runTimeStack();
+        System.out.println(" ");
 
+        //Queue Timer
+        MyQueueTime.runTimeQueue();
+        System.out.println(" ");
 
+        //HashMap Timer
+        MyHashMapTime.runTimeHashMap();
     }
-
-  public static void runTimeLinkedList() {
-      LinkedList<Integer> myLinkedList = new LinkedList<>();
-      Timer timeLinkedList = new Timer("Linked List");
-
-      timeLinkedList.startTimer();
-      for (int i = 0; i < 10000; i++) {
-          myLinkedList.add(i);
-      }
-      timeLinkedList.endTimer(timeLinkedList.getStart());
-
-      //don't need another for loop just do an if contains
-      timeLinkedList.startTimer();
-      if(myLinkedList.contains(9999)){
-          timeLinkedList.endTimer(timeLinkedList.getStart());
-      }
-
-
-
-//TODO figure out why this doesn't run ... line 66 doesn't execute
-      //need to add a printout to track delete time or
-      timeLinkedList.startTimer();
-      myLinkedList.clear();
-      timeLinkedList.endTimer(timeLinkedList.getStart());
-
-      timeLinkedList.totalTime();
-
-  }
 }

@@ -1,4 +1,4 @@
-package labs_examples.datastructures.hashmap.labs;
+package labs_examples.datastructures.hashmap.labs.myHashMap.Timing;
 
 public class Timer {
 
@@ -8,10 +8,6 @@ public class Timer {
 
     public Timer(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public long getStart() {
@@ -33,20 +29,19 @@ public class Timer {
     }
 
     public long howLongAdd() {
-        System.out.println(name + " takes " + getDiff() + " milliseconds, to add 1000 items");
+        System.out.println(name + " takes " + getDiff() + " milliseconds, to add 100000 items");
         return getDiff();
     }
 
     public long howLongSearch() {
-       System.out.println(name + " takes " + getDiff() + " milliseconds, to search 1000 items");
+       System.out.println(name + " takes " + getDiff() + " milliseconds, to search 100000 items");
        return getDiff();
     }
 
     public long howLongDelete() {
-        System.out.println(name + " takes " + getDiff() + " milliseconds, to delete 1000 items");
+        System.out.println(name + " takes " + getDiff() + " milliseconds, to delete 100000 items");
         return getDiff();
     }
-
 
     public void totalTime(){
         long sum = howLongAdd() + howLongSearch() + howLongDelete();

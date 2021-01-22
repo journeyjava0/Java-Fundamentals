@@ -9,6 +9,11 @@ public static void main (String[] args){
 //code
 }
 
+class AnotherClass{
+
+//class within a class ... legal but typicall not done.
+}
+
 }
 
 

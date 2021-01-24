@@ -4,6 +4,7 @@ just a file for practice and to keep current on using vim.
 Another line of text:
 //practice creating a class:
 //package statment
+//import statements
 public class ClassName{
 //instance variables & methods & constructors
 public static void main (String[] args){

@@ -1,5 +1,5 @@
 test file. delete.
-//practice    
+//practice.    
 just a file for practice and to keep current on using vim.
 Another line of text:
 //practice creating a class:
